@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-base: #0a0a0a;
+  --bg-raised: #111113;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --border-hairline: rgba(255, 255, 255, 0.08);
+  --border-hairline-strong: rgba(255, 255, 255, 0.16);
+
+  --text-primary: #f5f5f2;
+  --text-secondary: rgba(245, 245, 242, 0.62);
+  --text-tertiary: rgba(245, 245, 242, 0.38);
+
+  --accent: #4c82e8;
+  --accent-dim: rgba(76, 130, 232, 0.16);
+  --accent-glow: rgba(76, 130, 232, 0.45);
+
+  --content-max-width: 1120px;
+
+  --radius-lg: 14px;
+  --radius-md: 10px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg-base: var(--bg-base);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-glass: var(--bg-glass);
+  --color-border-hairline: var(--border-hairline);
+  --color-border-hairline-strong: var(--border-hairline-strong);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-glow: var(--accent-glow);
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --radius-lg: var(--radius-lg);
+  --radius-md: var(--radius-md);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--bg-base);
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-feature-settings: "ss01" 1;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--text-primary);
+}
+
+/* Film grain overlay — see DESIGN_TOKENS.md; invented, not present on the live site */
+.grain-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
