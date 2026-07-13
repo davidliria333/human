@@ -19,6 +19,8 @@
 
 # production
 /build
+/dist
+/site-static
 
 # misc
 .DS_Store
