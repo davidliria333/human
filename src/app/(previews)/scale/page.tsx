@@ -47,7 +47,7 @@ export default function ScaleContextPage() {
           className="h-auto w-full"
         />
 
-        <div className="absolute top-[3%] left-[4.1%] flex h-[5.8%] w-[26.5%] items-center bg-white px-[0.5%]">
+        <div className="absolute top-[2.7%] left-[3.5%] flex h-[6.4%] w-[31%] items-center bg-white px-[0.5%]">
           <span
             className="block h-full w-full bg-white bg-center bg-no-repeat"
             style={{
