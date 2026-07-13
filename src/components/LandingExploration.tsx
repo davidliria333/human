@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BrandLockup } from "./BrandPreview";
+import { BrandLockup, PreviewSwitcher } from "./BrandPreview";
 import { Container } from "./Container";
 
 const EASE_OUT_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -54,6 +54,7 @@ export function LandingExploration() {
           </Container>
         </section>
       </main>
+      <PreviewSwitcher active="landing" />
     </div>
   );
 }

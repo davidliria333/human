@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ScaleContextPage() {
   return (
     <main className="min-h-screen bg-white">
-      <div className="relative mx-auto w-full max-w-[1920px] overflow-hidden bg-white">
+      <div className="relative mx-auto hidden w-full max-w-[1920px] overflow-hidden bg-white md:block">
         <Image
           src="/mockups/scale-homepage-reference.png"
           alt="Scale website reference with the Human Archive logo applied for presentation"
@@ -37,8 +37,30 @@ export default function ScaleContextPage() {
         </div>
       </div>
 
+      <div className="relative mx-auto w-full max-w-[1179px] overflow-hidden bg-white md:hidden">
+        <Image
+          src="/mockups/scale-homepage-reference-mobile.png"
+          alt="Mobile Scale website reference with the Human Archive logo applied for presentation"
+          width={1179}
+          height={2556}
+          priority
+          className="h-auto w-full"
+        />
+
+        <div className="absolute top-[8.2%] left-[4.1%] flex h-[5.3%] w-[26.5%] items-center bg-white px-[0.5%]">
+          <span
+            className="block h-full w-full bg-white bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url(/brand/human-archive-lockup-gray.jpeg)",
+              backgroundSize: "170% auto",
+            }}
+            role="img"
+            aria-label="Human Archive"
+          />
+        </div>
+      </div>
+
       <PreviewSwitcher active="scale" />
     </main>
   );
 }
-

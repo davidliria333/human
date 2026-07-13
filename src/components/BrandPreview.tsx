@@ -25,40 +25,37 @@ export function BrandLockup({ variant }: { variant: LogoVariant }) {
   }
 
   return (
-    <span className="flex items-center gap-2.5">
-      <span
-        className="block h-9 w-9 shrink-0 bg-white bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${LOGOS[variant]})`,
-          backgroundSize: "190px 134px",
-        }}
-        aria-hidden="true"
-      />
-      <span className="text-[16px] font-semibold tracking-[-0.035em] text-[#32343a]">
-        Human Archive
-      </span>
-    </span>
+    <span
+      className="block h-10 w-10 shrink-0 bg-white bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${LOGOS[variant]})`,
+        backgroundSize: "210px 148px",
+      }}
+      role="img"
+      aria-label="Human Archive"
+    />
   );
 }
 
-export function PreviewSwitcher({ active }: { active: LogoVariant | "scale" }) {
+export function PreviewSwitcher({ active }: { active: LogoVariant | "scale" | "landing" }) {
   const links = [
     { label: "Logo 1", href: "/1", value: "1" },
     { label: "Logo 2", href: "/2", value: "2" },
     { label: "Logo 3", href: "/3", value: "3" },
+    { label: "Landing", href: "/landing-exploration1", value: "landing" },
     { label: "Scale", href: "/scale", value: "scale" },
   ] as const;
 
   return (
     <nav
       aria-label="Logo previews"
-      className="fixed bottom-5 left-1/2 z-[300] flex -translate-x-1/2 items-center gap-1 rounded-full border border-white/15 bg-black/80 p-1.5 shadow-2xl backdrop-blur-xl"
+      className="fixed bottom-5 left-1/2 z-[300] flex max-w-[calc(100vw-1.5rem)] -translate-x-1/2 items-center gap-1 overflow-x-auto rounded-full border border-white/15 bg-black/80 p-1.5 shadow-2xl backdrop-blur-xl"
     >
       {links.map((link) => (
         <Link
           key={link.value}
           href={link.href}
-          className={`whitespace-nowrap rounded-full px-3.5 py-2 text-xs font-medium transition-colors ${
+          className={`whitespace-nowrap rounded-full px-2.5 py-2 text-[11px] font-medium transition-colors sm:px-3.5 sm:text-xs ${
             active === link.value
               ? "bg-white text-black"
               : "text-white/65 hover:bg-white/10 hover:text-white"
@@ -102,10 +99,7 @@ export function BrandPreview({ variant }: { variant: LogoVariant }) {
       </main>
 
       <footer className="border-t border-white/10 px-5 py-10">
-        <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-6">
-          <div className="rounded-md bg-white px-3 py-2">
-            <BrandLockup variant={variant} />
-          </div>
+        <div className="mx-auto flex max-w-[1120px] items-center justify-end">
           <span className="text-sm text-white/35">Human Archive © 2026</span>
         </div>
       </footer>
