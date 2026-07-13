@@ -4,6 +4,12 @@ import { BrandPreview, type LogoVariant } from "@/components/BrandPreview";
 
 const VARIANTS = new Set(["1", "2", "3"]);
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ variant: "1" }, { variant: "2" }, { variant: "3" }];
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -29,4 +35,3 @@ export default async function LogoPreviewPage({
 
   return <BrandPreview variant={variant as LogoVariant} />;
 }
-
