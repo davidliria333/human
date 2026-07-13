@@ -41,6 +41,11 @@ await rm(distRoot, { recursive: true, force: true });
 await mkdir(path.join(distRoot, "server"), { recursive: true });
 await mkdir(path.join(distRoot, ".openai"), { recursive: true });
 await cp(staticRoot, clientRoot, { recursive: true });
+for (const blockedRoute of ["contribute", "marketplace"]) {
+  await rm(path.join(clientRoot, `${blockedRoute}.html`), { force: true });
+  await rm(path.join(clientRoot, `${blockedRoute}.txt`), { force: true });
+  await rm(path.join(clientRoot, blockedRoute), { recursive: true, force: true });
+}
 await cp(
   path.join(projectRoot, ".openai", "hosting.json"),
   path.join(distRoot, ".openai", "hosting.json"),
