@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Container } from "./Container";
-import { Logomark, IconX, IconLinkedIn, IconDiscord } from "./icons";
+import { IconX, IconLinkedIn, IconDiscord } from "./icons";
+import { BrandLockup } from "./BrandPreview";
 
 const COLUMNS = [
   {
     title: "For Contributors",
     links: [
-      { label: "Start Contributing", href: "/contribute" },
-      { label: "Upload Content", href: "/contribute" },
+      { label: "Start Contributing", href: "/" },
+      { label: "Upload Content", href: "/" },
       { label: "View Earnings", href: "/signin" },
       { label: "My Submissions", href: "/signin" },
     ],
@@ -15,8 +16,8 @@ const COLUMNS = [
   {
     title: "For Enterprise",
     links: [
-      { label: "View Catalog", href: "/marketplace" },
-      { label: "Browse Datasets", href: "/marketplace" },
+      { label: "View Catalog", href: "/" },
+      { label: "Browse Datasets", href: "/" },
       { label: "Request a Dataset", href: "/request" },
       { label: "Enterprise Sign In", href: "/signin" },
     ],
@@ -37,9 +38,8 @@ export function Footer() {
       <Container className="flex flex-col gap-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 flex flex-col gap-3 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 text-text-primary">
-              <Logomark className="h-6 w-6" />
-              <span className="text-[15px] font-medium tracking-tight">Human Archive</span>
+            <Link href="/" className="w-fit rounded-md bg-white px-2 py-1">
+              <BrandLockup variant="3" />
             </Link>
             <p className="max-w-[220px] text-sm font-light leading-relaxed text-text-tertiary">
               A multimodal data marketplace connecting contributors and AI

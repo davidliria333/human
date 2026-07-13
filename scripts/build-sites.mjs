@@ -87,6 +87,9 @@ function decodeBase64(value) {
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+    if (["/contribute", "/contribute.html", "/marketplace", "/marketplace.html"].includes(url.pathname)) {
+      return Response.redirect(new URL("/", url), 302);
+    }
     const asset = assetForPath(url.pathname);
     if (!asset) return new Response("Not found", { status: 404 });
 
@@ -107,4 +110,3 @@ export default {
 
 await writeFile(path.join(distRoot, "server", "index.js"), workerSource, "utf8");
 console.log(`Built Sites package with ${Object.keys(assets).length} embedded assets.`);
-

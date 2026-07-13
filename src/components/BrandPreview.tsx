@@ -74,17 +74,17 @@ export function PreviewSwitcher({ active }: { active: LogoVariant | "scale" }) {
 export function BrandPreview({ variant }: { variant: LogoVariant }) {
   return (
     <div className="min-h-screen bg-bg-base">
-      <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-white/95 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-white">
         <div className="mx-auto flex h-[72px] max-w-[1120px] items-center justify-between px-5 md:px-0">
           <Link href={`/${variant}`} aria-label="Human Archive home">
             <BrandLockup variant={variant} />
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <Link href="/contribute" className="text-sm text-black/65 hover:text-black">
+            <Link href="/" className="text-sm text-black/65 hover:text-black">
               Contribute
             </Link>
-            <Link href="/marketplace" className="text-sm text-black/65 hover:text-black">
+            <Link href="/" className="text-sm text-black/65 hover:text-black">
               Marketplace
             </Link>
             <Link
@@ -114,4 +114,3 @@ export function BrandPreview({ variant }: { variant: LogoVariant }) {
     </div>
   );
 }
-
