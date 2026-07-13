@@ -39,11 +39,11 @@ export function BrandLockup({ variant }: { variant: LogoVariant }) {
 
 export function PreviewSwitcher({ active }: { active: LogoVariant | "scale" | "landing" }) {
   const links = [
-    { label: "Logo 1", href: "/1", value: "1" },
-    { label: "Logo 2", href: "/2", value: "2" },
-    { label: "Logo 3", href: "/3", value: "3" },
+    { label: "Logo", href: "/1", value: "1" },
+    { label: "Color", href: "/2", value: "2" },
+    { label: "Full wordmark", href: "/3", value: "3" },
     { label: "Landing", href: "/landing-exploration1", value: "landing" },
-    { label: "Scale", href: "/scale", value: "scale" },
+    { label: "Scale mockup", href: "/scale", value: "scale" },
   ] as const;
 
   return (

@@ -42,12 +42,12 @@ export default function ScaleContextPage() {
           src="/mockups/scale-homepage-reference-mobile.png"
           alt="Mobile Scale website reference with the Human Archive logo applied for presentation"
           width={1179}
-          height={2556}
+          height={2093}
           priority
           className="h-auto w-full"
         />
 
-        <div className="absolute top-[8.2%] left-[4.1%] flex h-[5.3%] w-[26.5%] items-center bg-white px-[0.5%]">
+        <div className="absolute top-[3%] left-[4.1%] flex h-[5.8%] w-[26.5%] items-center bg-white px-[0.5%]">
           <span
             className="block h-full w-full bg-white bg-center bg-no-repeat"
             style={{
