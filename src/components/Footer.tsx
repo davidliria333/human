@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { IconX, IconLinkedIn, IconDiscord } from "./icons";
-import { BrandLockup } from "./BrandPreview";
 
 const COLUMNS = [
   {
@@ -38,9 +37,6 @@ export function Footer() {
       <Container className="flex flex-col gap-14">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-2 flex flex-col gap-3 md:col-span-1">
-            <Link href="/" className="w-fit rounded-md bg-white px-2 py-1">
-              <BrandLockup variant="3" />
-            </Link>
             <p className="max-w-[220px] text-sm font-light leading-relaxed text-text-tertiary">
               A multimodal data marketplace connecting contributors and AI
               companies to build high-quality training datasets.
