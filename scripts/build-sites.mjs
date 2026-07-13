@@ -41,6 +41,7 @@ await rm(distRoot, { recursive: true, force: true });
 await mkdir(path.join(distRoot, "server"), { recursive: true });
 await mkdir(path.join(distRoot, ".openai"), { recursive: true });
 await cp(staticRoot, clientRoot, { recursive: true });
+await rm(path.join(clientRoot, "index.html"), { force: true });
 for (const blockedRoute of ["contribute", "marketplace"]) {
   await rm(path.join(clientRoot, `${blockedRoute}.html`), { force: true });
   await rm(path.join(clientRoot, `${blockedRoute}.txt`), { force: true });
@@ -98,7 +99,7 @@ export default {
         status: 200,
         headers: {
           "content-type": landing[0],
-          "cache-control": "public, max-age=300",
+          "cache-control": "no-cache",
         },
       });
     }
@@ -116,7 +117,9 @@ export default {
         "content-type": contentType,
         "cache-control": url.pathname.startsWith("/_next/static/")
           ? "public, max-age=31536000, immutable"
-          : "public, max-age=300",
+          : contentType.startsWith("text/html")
+            ? "no-cache"
+            : "public, max-age=300",
       },
     });
   },
