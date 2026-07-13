@@ -92,6 +92,16 @@ function decodeBase64(value) {
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+    if (["/landing-exploration1", "/landing-exploration1/", "/landing-exploration1.html"].includes(url.pathname)) {
+      const landing = ASSETS["/landing-exploration1.html"] ?? ASSETS["/index.html"];
+      return new Response(request.method === "HEAD" ? null : decodeBase64(landing[1]), {
+        status: 200,
+        headers: {
+          "content-type": landing[0],
+          "cache-control": "public, max-age=300",
+        },
+      });
+    }
     if (["/contribute", "/contribute.html", "/marketplace", "/marketplace.html"].includes(url.pathname)) {
       return Response.redirect(new URL("/", url), 302);
     }
